@@ -25,6 +25,7 @@ class ofApp : public ofBaseApp{
     
         void canvasWidthChanged(float & val);
         void canvasHeightChanged(float & val);
+        void boxHeightChanged(float & val);
         void minimumSideMarginChanged(float & val);
         void minimumGutterChanged(float & val);
         void boxWidthDifferenceChanged(float & val);

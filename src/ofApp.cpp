@@ -12,6 +12,9 @@ void ofApp::setup() {
     state.canvasHeight.addListener(this, &ofApp::canvasHeightChanged);
     gui.add(state.canvasHeight.set("height", 1800, 400, 1800));
     
+    state.boxHeight.addListener(this, &ofApp::boxHeightChanged);
+    gui.add(state.boxHeight.set("box height", 0.75, 0.2, 0.95));
+    
     state.minimumSideMargin.addListener(this, &ofApp::minimumSideMarginChanged);
     gui.add(state.minimumSideMargin.set("min. margin", 0.06, 0.0f, 0.4f));
     
@@ -33,6 +36,12 @@ void ofApp::minimumSideMarginChanged(float & val) {
 //--------------------------------------------------------------
 void ofApp::minimumGutterChanged(float & val) {
     state.gutter = val;
+    state.calculate();
+}
+
+//--------------------------------------------------------------
+void ofApp::boxHeightChanged(float & val) {
+    state.boxHeight = val;
     state.calculate();
 }
 

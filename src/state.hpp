@@ -21,8 +21,12 @@ public:
     ofRectangle leftBox;
     ofRectangle rightBox;
     
+    ofVec2f rightBoxAnchor1;
+    ofVec2f rightBoxAnchor2;
+    
     ofParameter<float> canvasWidth;
     ofParameter<float> canvasHeight;
+    ofParameter<float> boxHeight;
     
     ofParameter<float> boxWidthDifference;
     ofParameter<float> minimumSideMargin;
