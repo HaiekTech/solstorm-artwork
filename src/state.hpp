@@ -16,6 +16,7 @@ public:
     
     void init();
     void calculate();
+    void calculateRightShape();
     void draw();
     
     float nudge1;
@@ -39,6 +40,11 @@ public:
     ofParameter<float> boxWidthDifference;
     ofParameter<float> minimumSideMargin;
     ofParameter<float> gutter;
+    
+    vector<ofVec2f> anchor1Array;
+    vector<ofVec2f> anchor2Array;
+    vector<ofVec2f> anchor3Array;
+    vector<ofVec2f> anchor4Array;
     
     bool showWireframes = true;
     
