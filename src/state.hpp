@@ -15,11 +15,16 @@ class State {
 public:
     
     void init();
+    void calculate();
+    void draw();
     
-    ofParameter<int> canvasWidth;
-    ofParameter<int> canvasHeight;
+    ofRectangle leftBox;
+    ofRectangle rightBox;
     
-    ofParameter<int> boxWidthDifference;
+    ofParameter<float> canvasWidth;
+    ofParameter<float> canvasHeight;
+    
+    ofParameter<float> boxWidthDifference;
     ofParameter<float> minimumSideMargin;
     ofParameter<float> gutter;
     

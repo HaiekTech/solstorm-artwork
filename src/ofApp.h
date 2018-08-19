@@ -23,11 +23,13 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-        void canvasWidthChanged(int & val);
-        void canvasHeightChanged(int & val);
+        void canvasWidthChanged(float & val);
+        void canvasHeightChanged(float & val);
         void minimumSideMarginChanged(float & val);
         void minimumGutterChanged(float & val);
-        void boxWidthDifferenceChanged(int & val);
+        void boxWidthDifferenceChanged(float & val);
+    
+        void drawGuides();
     
         State state;
     

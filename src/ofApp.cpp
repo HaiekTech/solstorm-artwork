@@ -13,38 +13,45 @@ void ofApp::setup() {
     gui.add(state.canvasHeight.set("height", 1800, 400, 1800));
     
     state.minimumSideMargin.addListener(this, &ofApp::minimumSideMarginChanged);
-    gui.add(state.minimumSideMargin.set("min. margin", 1.0f, 1.0f, 10.0f));
+    gui.add(state.minimumSideMargin.set("min. margin", 0.06, 0.0f, 0.4f));
     
     state.gutter.addListener(this, &ofApp::minimumGutterChanged);
-    gui.add(state.gutter.set("gutter", 0.5f, 0.2f, 4.0f));
+    gui.add(state.gutter.set("gutter", 0.0055f, 0.0f, 0.22f));
     
     state.boxWidthDifference.addListener(this, &ofApp::boxWidthDifferenceChanged);
-    gui.add(state.boxWidthDifference.set("box width diff", 40, 20, 80));
+    gui.add(state.boxWidthDifference.set("box width diff", 0.4, 0.2, 0.8));
+    
+    state.calculate();
 }
 
 //--------------------------------------------------------------
 void ofApp::minimumSideMarginChanged(float & val) {
     state.minimumSideMargin = val;
+    state.calculate();
 }
 
 //--------------------------------------------------------------
 void ofApp::minimumGutterChanged(float & val) {
     state.gutter = val;
+    state.calculate();
 }
 
 //--------------------------------------------------------------
-void ofApp::boxWidthDifferenceChanged(int & val) {
+void ofApp::boxWidthDifferenceChanged(float & val) {
     state.boxWidthDifference = val;
+    state.calculate();
 }
 
 //--------------------------------------------------------------
-void ofApp::canvasWidthChanged(int & val) {
+void ofApp::canvasWidthChanged(float & val) {
     state.canvasWidth = val;
+    state.calculate();
 }
 
 //--------------------------------------------------------------
-void ofApp::canvasHeightChanged(int & val) {
+void ofApp::canvasHeightChanged(float & val) {
     state.canvasHeight = val;
+    state.calculate();
 }
 
 //--------------------------------------------------------------
@@ -62,7 +69,29 @@ void ofApp::draw() {
     
     ofSetBackgroundColor(140, 140, 140);
     
-    ofSetColor(0, 0, 0);
+    ofPushMatrix();
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    
+        ofNoFill();
+        ofSetColor(0, 0, 0);
+        ofSetLineWidth(1.0f);
+    
+        ofDrawRectangle(cw*-1, ch*-1, cw*2, ch*2);
+    
+        state.draw();
+    
+    ofPopMatrix();
+    
+    drawGuides();
+    
+}
+
+void ofApp::drawGuides() {
+    int cw = state.canvasWidth.get()  / 2;
+    int ch = state.canvasHeight.get() / 2;
+    
+    ofSetColor(0);
+    ofSetLineWidth(1.0f);
     ofDrawLine(ofGetWidth()/2, 0, ofGetWidth()/2, ofGetHeight());
     ofDrawLine(0, ofGetHeight()/2, ofGetWidth(), ofGetHeight()/2);
     
@@ -81,7 +110,6 @@ void ofApp::draw() {
     ofDrawBitmapString(ofToString(ch*-1), -20, (ch*-1)+10);
     ofDrawBitmapString(ofToString(ch), -15, ch);
     
-    ofDrawRectangle(cw*-1, ch*-1, cw*2, ch*2);
     ofPopMatrix();
 }
 
