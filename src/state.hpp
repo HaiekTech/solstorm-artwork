@@ -18,6 +18,14 @@ public:
     void calculate();
     void draw();
     
+    float nudge1;
+    float nudge2;
+    float nudge3;
+    
+    float nudgePower1;
+    float nudgePower2;
+    float nudgePower3;
+    
     ofRectangle leftBox;
     ofRectangle rightBox;
     
@@ -31,6 +39,8 @@ public:
     ofParameter<float> boxWidthDifference;
     ofParameter<float> minimumSideMargin;
     ofParameter<float> gutter;
+    
+    bool showWireframes = true;
     
 };
 

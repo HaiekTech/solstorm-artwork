@@ -37,5 +37,7 @@ class ofApp : public ofBaseApp{
         ofxPanel gui;
         ofParameter<float> radius;
         ofParameter<int> circleResolution;
+    
+        bool showWireframes = true;
 		
 };
