@@ -5,10 +5,11 @@
 //  Created by Kristoffer Lundberg on 19/08/2018.
 //
 
-#include "ofMain.h"
-
 #ifndef state_h
 #define state_h
+
+#include "ofMain.h"
+#include "dot.hpp"
 
 class State {
     
@@ -17,6 +18,7 @@ public:
     void init();
     void calculate();
     void calculateRightShape();
+    void distributeDots();
     void draw();
     
     float nudge1;
@@ -45,6 +47,8 @@ public:
     vector<ofVec2f> anchor2Array;
     vector<ofVec2f> anchor3Array;
     vector<ofVec2f> anchor4Array;
+    
+    vector<Dot> dotArray;
     
     bool showWireframes = true;
     

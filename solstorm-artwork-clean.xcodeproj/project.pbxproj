@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907C5B5E104864A2D3A25745 /* ofxToggle.cpp */; };
+		2256D712212A026F00AD0745 /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2256D710212A026F00AD0745 /* dot.cpp */; };
 		227DD93C21297E900011527F /* state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 227DD93B21297E900011527F /* state.cpp */; };
 		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
 		5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */; };
@@ -69,6 +70,8 @@
 		17E65988300FBD9AAA2CD0CA /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGui.h; path = ../../../addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
 		181D363B6DD54D1FA6309C43 /* ofxColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxColorPicker.cpp; path = ../../../addons/ofxGui/src/ofxColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		1C0DA2561397A7DE0246858B /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../../addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
+		2256D710212A026F00AD0745 /* dot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };
+		2256D711212A026F00AD0745 /* dot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dot.hpp; sourceTree = "<group>"; };
 		227DD93A21297E190011527F /* state.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = state.hpp; sourceTree = "<group>"; };
 		227DD93B21297E900011527F /* state.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = state.cpp; sourceTree = "<group>"; };
 		22971C55A80288DE7E9FFAF8 /* c14n.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c14n.h; path = ../../../addons/ofxSvg/libs/libxml2/include/libxml/c14n.h; sourceTree = SOURCE_ROOT; };
@@ -374,6 +377,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				227DD93A21297E190011527F /* state.hpp */,
 				227DD93B21297E900011527F /* state.cpp */,
+				2256D710212A026F00AD0745 /* dot.cpp */,
+				2256D711212A026F00AD0745 /* dot.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -497,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2256D712212A026F00AD0745 /* dot.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				227DD93C21297E900011527F /* state.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,

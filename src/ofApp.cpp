@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+    ofSetCircleResolution(22);
+    ofEnableSmoothing();
     state.init();
     
     gui.setup("panel");
@@ -19,7 +21,7 @@ void ofApp::setup() {
     gui.add(state.minimumSideMargin.set("min. margin", 0.06, 0.0f, 0.4f));
     
     state.gutter.addListener(this, &ofApp::minimumGutterChanged);
-    gui.add(state.gutter.set("gutter", 0.0055f, 0.0f, 0.22f));
+    gui.add(state.gutter.set("gutter", 0.0f, 0.0f, 0.16f));
     
     state.boxWidthDifference.addListener(this, &ofApp::boxWidthDifferenceChanged);
     gui.add(state.boxWidthDifference.set("box width diff", 0.4, 0.2, 0.8));

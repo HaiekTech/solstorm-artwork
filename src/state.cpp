@@ -17,8 +17,8 @@ void State::calculate() {
     nudge2 = 0.04;
     nudge3 = 0.005;
     
-    nudgePower1 = ofRandom(6);
-    nudgePower2 = ofRandom(6);
+    nudgePower1 = ofClamp(ofRandom(6), 1, 6);
+    nudgePower2 = ofClamp(ofRandom(6), 1, 6);
     nudgePower3 = 32;
     
     float calculatedGutter = canvasWidth * gutter.get();
@@ -67,6 +67,7 @@ void State::calculate() {
     leftBox = ofRectangle(leftBoxX + (calculatedSideMargin/2), leftBoxHeight/2*-1, leftBoxWidth, leftBoxHeight);
     
     calculateRightShape();
+    distributeDots();
 }
 
 void State::calculateRightShape() {
@@ -137,6 +138,38 @@ void State::calculateRightShape() {
 
 }
 
+void State::distributeDots() {
+    int particles = 2000;
+    
+    dotArray.clear();
+    for (int i = 0; i < particles; i++) {
+        float randX = ofRandom(1);
+        float randY = ofRandom(1);
+        
+        float dotX = ofMap(randX, 0.0f, 1.0f, leftBox.x + 10, leftBox.x + leftBox.width - 10);
+        float dotY = ofMap(randY, 0.0f, 1.0f, leftBox.y + 10, (leftBox.height / 2) - 10);
+        
+        bool isTooClose = false;
+        
+        Dot dot;
+        dot.pos = ofVec2f(dotX, dotY);
+        
+        for (int j = 0; j < dotArray.size(); j++) {
+            float a = dotX - dotArray[j].pos.x;
+            float b = dotY - dotArray[j].pos.y;
+            float c = sqrt(a*a + b*b);
+            
+            if (c < 10.0f) {
+                isTooClose = true;
+            }
+        }
+        
+        if (!isTooClose) {
+            dotArray.push_back(dot);
+        }
+    }
+}
+
 void State::draw() {
     ofNoFill();
     ofSetLineWidth(2.0f);
@@ -147,9 +180,9 @@ void State::draw() {
         ofDrawRectangle(leftBox.x, leftBox.y, leftBox.width, leftBox.height);
         ofDrawRectangle(rightBox.x, rightBox.y, rightBox.width, rightBox.height);
     }
-    
+        
     // start drawing the real shape of the right box
-    ofFill();
+    ofNoFill();
     ofSetColor(0, 0, 0);
     ofBeginShape();
     
@@ -174,6 +207,18 @@ void State::draw() {
     }
     
     ofEndShape();
+    
+    ofFill();
+    ofSetColor(140, 140, 140);
+    for (int i = 0; i < dotArray.size(); i++) {
+        ofDrawCircle(dotArray[i].pos.x, dotArray[i].pos.y, 4);
+    }
+    
+    ofNoFill();
+    ofSetColor(0, 0, 0, 255);
+    for (int i = 0; i < dotArray.size(); i++) {
+        ofDrawCircle(dotArray[i].pos.x, dotArray[i].pos.y, 4);
+    }
     
     if (showWireframes) {
         // show anchors
